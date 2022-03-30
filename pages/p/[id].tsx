@@ -56,10 +56,10 @@ const Post: React.FC<PostProps> = (props) => {
         <p>By {props?.author?.name || 'Unknown author'}</p>
         <ReactMarkdown children={props.content} />
         {!props.published && userHasValidSession && postBelongsToUser && (
-          <button onClick={() => publishPost(props.id)}>Publish</button>
+          <button onClick={() => publishPost(props.id.toString())}>Publish</button>
         )}
         {userHasValidSession && postBelongsToUser && (
-          <button onClick={() => deletePost(props.id)}>Delete</button>
+          <button onClick={() => deletePost(props.id.toString())}>Delete</button>
         )}
       </div>
       <style jsx>{`
